@@ -8,7 +8,6 @@ let frames=0;
 // Loading Images
 let sprite = new Image();
 sprite.src = "src/assets/images/sprite.png";
-console.log(sprite);
 
 //game page
 const state={
@@ -28,6 +27,7 @@ cvs.addEventListener("click",function(){
             break;
         case state.gameOver:
             state.current = state.getReady;
+            pipes.reset();
             break;
     }
 })
@@ -72,7 +72,7 @@ let cloud = {
     w:275,
     h:220,
     x:0,
-    y:cvs.height-220,
+    y:cvs.height-280,
     draw:function(){
        ctx.drawImage(sprite,this.sX,this.sY,this.w,this.h,this.x,this.y,this.w,this.h);
        ctx.drawImage(sprite,this.sX,this.sY,this.w,this.h,this.x + this.w,this.y,this.w,this.h);
@@ -102,9 +102,11 @@ let ground = {
        ctx.drawImage(sprite,this.sX,this.sY,this.w,this.h,this.x + 6*(this.w),this.y,this.w,this.h);
     },
     update:function(){
-        this.x= this.x - this.dx;
-        if (this.x%50==0){
-            this.x =0;
+        if(state.current==state.game){
+            this.x= this.x - this.dx;
+            if (this.x%50==0){
+                this.x =0;
+            }
         }
 
     }
@@ -189,8 +191,29 @@ const pipes={
                 y:this.maxYPos*(Math.random()+1),
             });
         }
+        for(let i=0;i<this.position.length;i++){
+            let p= this.position[i];
+            p.x=p.x-this.dx;
+
+            //remove pipes
+            if(p.x+this.w<=0){
+                this.position.shift();
+            }
+            //collision with the pipe
+            if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
+                bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
+                    state.current=state.gameOver;
+                }
+            let tobp=p.y+this.h+this.gap;
+            if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
+                bird.y+bird.radius>tobp && bird.y-bird.radius<tobp+this.h){
+                    state.current=state.gameOver;
+            }
+        }
         
-        
+    },
+    reset:function(){
+        this.position=[];
     }
     
 }
