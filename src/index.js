@@ -19,20 +19,21 @@ const state={
 }
 
 cvs.addEventListener("click",function(){
-    console.log(state.current);
     switch(state.current){
         case state.getReady:
             state.current= state.game;
             break;
         case state.game:
             bird.move();
-            state.current = state.gameOver;
             break;
         case state.gameOver:
             state.current = state.getReady;
             break;
     }
 })
+
+
+
 //1st page
 const getReady ={
     sX:0,
@@ -122,25 +123,85 @@ const bird={
     h:26,
     frame:0,
     period:8,
+    speed:0,
+    gravity:0.20,
+    jump:4.6,
+    radius:13,
     draw:function(){
         let bird = this.animation[this.frame];
-        ctx.drawImage(sprite,bird.sX,bird.sY,this.w,this.h,this.x,this.y,this.w,this.h);
+        ctx.drawImage(sprite,bird.sX,bird.sY,this.w,this.h,this.x-this.w/2,this.y-this.h/2,this.w,this.h);
     },
     update:function(){
         this.frame += frames%this.period==0 ? 1:0;  //flapping the bird
         this.frame = this.frame%this.animation.length; //resetting the frame
+        // gravity
+        if(state.current==state.getReady){
+            this.y=150;
+        }else{
+            this.y+= this.speed;
+            this.speed += this.gravity;
+        }
+        if(this.y+this.h/2 >= cvs.height-ground.h){
+            this.speed =0;
+            this.frame =0;            
+            state.current=state.gameOver;
+        }
     },
     move:function(){
-
+        this.speed = -this.jump;
     }
+}
+
+//pipes
+
+const pipes={
+    position:[],
+    top:{
+        sX:553,
+        sY:0,
+    },
+    bottom:{
+        sX:502,
+        sY:0,
+    },
+    w:53,
+    h:400,
+    gap:120,
+    maxYPos: -150,
+    dx:3,
+    draw:function(){
+        for(let i=0;i<this.position.length;i++){
+            let p= this.position[i];
+            let topYPos= p.y;
+            let bottomYPos=p.y+this.h+this.gap;
+            //top pipe
+            ctx.drawImage(sprite,this.top.sX,this.top.sY,this.w,this.h,p.x,topYPos,this.w,this.h);
+            ctx.drawImage(sprite,this.bottom.sX,this.bottom.sY,this.w,this.h,p.x,bottomYPos,this.w,this.h);
+        }
+    },
+    update:function(){
+        if(state.current !== state.game){
+            return;
+        }
+        if(frames%100==0){
+            this.position.push({
+                x:cvs.width,
+                y:this.maxYPos*(Math.random()+1),
+            });
+        }
+        
+        
+    }
+    
 }
 // for drawing
 const draw = () => {
     ctx.fillStyle="#70c5ce";
     ctx.fillRect(0,0,cvs.width,cvs.height);
     cloud.draw();
-    ground.draw();
-    bird.draw();
+    pipes.draw();
+    ground.draw();   
+    bird.draw();    
     getReady.draw();
     gameOver.draw();
 };
@@ -149,6 +210,7 @@ const draw = () => {
 const update = () => {
     ground.update();
     bird.update();
+    pipes.update();
 };
 
 //Loop fuction
