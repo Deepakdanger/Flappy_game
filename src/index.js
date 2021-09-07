@@ -266,13 +266,54 @@ const alien={
         }
     }
 }
+// for fireball
+const ball={
+    ball_position:[],
+    w:45,
+    h:20,
+    sX:0,
+    sY:0,
+    dx:4,
+    draw:function(){
+        for(let i=0;i<this.ball_position.length;i++){
+            let p=this.ball_position[i];
+            ctx.drawImage(fireballpic,this.sX,this.sY,64,64,p.x,p.y,this.w,this.h)
+        }
 
+    },
+    update:function(){
+        if(state.current!==state.game){
+            return;
+        }
+        if(frames%100==0){
+            this.ball_position.push({
+                x:cvs.width-100,
+                y:alien.y2,
+            });
+        }
+        for(let i=0;i<this.ball_position.length;i++){
+            let p=this.ball_position[i];
+            p.x -= this.dx;
+
+            if(p.x+this.width<=0){
+                this.ball_position.shift();
+            }
+            //collison
+            if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
+                bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
+                    state.current=state.gameOver;
+                }
+        }
+
+    }
+}
 // for drawing
 const draw = () => {
     ctx.fillStyle="#70c5ce";
     ctx.fillRect(0,0,cvs.width,cvs.height);
     cloud.draw();
     pipes.draw();
+    ball.draw();
     ground.draw();   
     bird.draw();
     alien.draw();
@@ -286,6 +327,7 @@ const update = () => {
     bird.update();
     pipes.update();
     alien.update();
+    ball.update();
 };
 
 //Loop fuction
