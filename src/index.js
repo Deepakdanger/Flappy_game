@@ -136,6 +136,8 @@ const bird={
 }
 // for drawing
 const draw = () => {
+    ctx.fillStyle="#70c5ce";
+    ctx.fillRect(0,0,cvs.width,cvs.height);
     cloud.draw();
     ground.draw();
     bird.draw();
