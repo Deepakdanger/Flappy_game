@@ -4,10 +4,18 @@ let ctx = cvs.getContext('2d');
 
 
 let frames=0;
+let count=0;
 
 // Loading Images
 let sprite = new Image();
 sprite.src = "src/assets/images/sprite.png";
+let birdpic = new Image();
+birdpic.src ="src/assets/images/frame.png";
+let alienpic = new Image();
+alienpic.src ="src/assets/images/alien.png";
+let fireballpic = new Image();
+fireballpic.src ="src/assets/images/fireball.png";
+
 
 //game page
 const state={
@@ -114,15 +122,20 @@ let ground = {
 // For bird
 const bird={
     animation:[
-        {sX:276,sY:112},
-        {sX:276,sY:139},
-        {sX:276,sY:164},
-        {sX:276,sY:139}
+        {sX:0,sY:0},
+        {sX:282,sY:1},
+        {sX:0,sY:234},
+        {sX:282,sY:1}
+    ],
+    die:[
+        {sX:272,sY:231}
     ],
     x:70,
     y:150,
-    w:34,
-    h:26,
+    w1:275,
+    h1:213,
+    w:36,
+    h:28,
     frame:0,
     period:8,
     speed:0,
@@ -130,8 +143,13 @@ const bird={
     jump:4.6,
     radius:13,
     draw:function(){
-        let bird = this.animation[this.frame];
-        ctx.drawImage(sprite,bird.sX,bird.sY,this.w,this.h,this.x-this.w/2,this.y-this.h/2,this.w,this.h);
+        if(state.current !== state.gameOver){
+            let bird = this.animation[this.frame];
+            ctx.drawImage(birdpic,bird.sX,bird.sY,this.w1,this.h1,this.x-this.w/2,this.y-this.h/2,this.w,this.h);
+        }
+        if(state.current==state.gameOver){
+            ctx.drawImage(birdpic,this.die[0].sX,this.die[0].sY,this.w1,this.h1,this.x-this.w/2,this.y-this.h/2,this.w,this.h);
+        }
     },
     update:function(){
         this.frame += frames%this.period==0 ? 1:0;  //flapping the bird
@@ -217,6 +235,38 @@ const pipes={
     }
     
 }
+
+//for alien
+const alien={
+    sX:0,
+    sY:0,    
+    w:464,
+    h:506,
+    x2:cvs.width-100,
+    y2:80,
+    w2:65,
+    h2:65,
+    dx:1,
+    draw:function(){
+        ctx.drawImage(alienpic,this.sX,this.sY,this.w,this.h,this.x2,this.y2,this.w2,this.h2);     
+    },
+    update:function(){
+        if(state.current==state.game){   
+            console.log(count);
+            if(count>600){
+                count=0;
+            }                  
+            if(count < 300){
+                this.y2 += this.dx;
+                count += 1;
+            }else{
+                this.y2 -= this.dx;
+                count += 1;
+            }
+        }
+    }
+}
+
 // for drawing
 const draw = () => {
     ctx.fillStyle="#70c5ce";
@@ -224,7 +274,8 @@ const draw = () => {
     cloud.draw();
     pipes.draw();
     ground.draw();   
-    bird.draw();    
+    bird.draw();
+    alien.draw();
     getReady.draw();
     gameOver.draw();
 };
@@ -234,6 +285,7 @@ const update = () => {
     ground.update();
     bird.update();
     pipes.update();
+    alien.update();
 };
 
 //Loop fuction
