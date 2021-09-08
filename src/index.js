@@ -20,6 +20,9 @@ fireballpic.src ="src/assets/images/fireball.png";
 let die=new Audio();
 die.src="src/assets/audio/die.wav";
 
+let music=new Audio();
+music.src="src/assets/audio/dreams.mp3";
+
 let hit=new Audio();
 hit.src="src/assets/audio/hit.wav";
 
@@ -28,6 +31,8 @@ point.src="src/assets/audio/point.wav";
 
 let swooshing=new Audio();
 swooshing.src="src/assets/audio/swooshing.wav";
+
+music.play();
 
 
 //game page
@@ -41,6 +46,10 @@ const state={
 cvs.addEventListener("click",function(){
     switch(state.current){
         case state.getReady:
+            if(state.current==state.getReady){
+                music.play();
+                music.volume=0.2;
+            }
             state.current= state.game;
             swooshing.play();
             break;
@@ -48,7 +57,8 @@ cvs.addEventListener("click",function(){
             bird.move();
             break;
         case state.gameOver:
-            state.current = state.getReady;
+            state.current = state.getReady;           
+            music.load();
             pipes.reset();
             ball.reset();
             score.reset();
@@ -181,6 +191,7 @@ const bird={
             this.speed =0;
             this.frame =0;
             if(state.current==state.game){
+                music.pause();
                 state.current=state.gameOver;
                 die.play();
             }          
@@ -245,12 +256,14 @@ const pipes={
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
                     hit.play();
+                    music.pause();
                     state.current=state.gameOver;
                 }
             let tobp=p.y+this.h+this.gap;
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>tobp && bird.y-bird.radius<tobp+this.h){
                     hit.play();
+                    music.pause();
                     state.current=state.gameOver;
             }
         }
@@ -328,6 +341,7 @@ const ball={
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
                     hit.play();
+                    music.pause();
                     state.current=state.gameOver;
                 }
         }
