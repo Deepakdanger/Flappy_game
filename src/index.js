@@ -16,6 +16,19 @@ alienpic.src ="src/assets/images/alien.png";
 let fireballpic = new Image();
 fireballpic.src ="src/assets/images/fireball.png";
 
+//loading audio
+let die=new Audio();
+die.src="src/assets/audio/die.wav";
+
+let hit=new Audio();
+hit.src="src/assets/audio/hit.wav";
+
+let point=new Audio();
+point.src="src/assets/audio/point.wav";
+
+let swooshing=new Audio();
+swooshing.src="src/assets/audio/swooshing.wav";
+
 
 //game page
 const state={
@@ -29,6 +42,7 @@ cvs.addEventListener("click",function(){
     switch(state.current){
         case state.getReady:
             state.current= state.game;
+            swooshing.play();
             break;
         case state.game:
             bird.move();
@@ -36,10 +50,11 @@ cvs.addEventListener("click",function(){
         case state.gameOver:
             state.current = state.getReady;
             pipes.reset();
+            ball.reset();
+            score.reset();
             break;
     }
 })
-
 
 
 //1st page
@@ -137,7 +152,7 @@ const bird={
     w:36,
     h:28,
     frame:0,
-    period:8,
+    period:5,
     speed:0,
     gravity:0.20,
     jump:4.6,
@@ -152,6 +167,7 @@ const bird={
         }
     },
     update:function(){
+        this.period=state.current==state.getReady?10:5;
         this.frame += frames%this.period==0 ? 1:0;  //flapping the bird
         this.frame = this.frame%this.animation.length; //resetting the frame
         // gravity
@@ -163,8 +179,11 @@ const bird={
         }
         if(this.y+this.h/2 >= cvs.height-ground.h){
             this.speed =0;
-            this.frame =0;            
-            state.current=state.gameOver;
+            this.frame =0;
+            if(state.current==state.game){
+                state.current=state.gameOver;
+                die.play();
+            }          
         }
     },
     move:function(){
@@ -216,15 +235,22 @@ const pipes={
             //remove pipes
             if(p.x+this.w<=0){
                 this.position.shift();
+                //scoring
+                point.play();
+                score.value+=1;
+                score.bestscore=Math.max(score.value,score.bestscore);
+                localStorage.setItem("bestscore",score.bestscore);
             }
             //collision with the pipe
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
+                    hit.play();
                     state.current=state.gameOver;
                 }
             let tobp=p.y+this.h+this.gap;
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>tobp && bird.y-bird.radius<tobp+this.h){
+                    hit.play();
                     state.current=state.gameOver;
             }
         }
@@ -301,12 +327,40 @@ const ball={
             //collison
             if(bird.x+bird.radius>p.x && bird.x-bird.radius<p.x+this.w &&
                 bird.y+bird.radius>p.y && bird.y-bird.radius<p.y+this.h){
+                    hit.play();
                     state.current=state.gameOver;
                 }
         }
 
+    },
+    reset:function(){
+        this.ball_position=[];
     }
 }
+
+// for scoring
+const score={
+    bestscore:parseInt(localStorage.getItem("bestscore")) || 0,
+    value:0,
+    draw:function(){
+        ctx.fillStyle="#000000";  
+        if(state.current==state.game){                  
+            ctx.font="40px teko";
+            ctx.fillText(this.value,100,80);
+        }else if(state.current==state.gameOver){
+            ctx.font="25px teko";
+            ctx.fillText(this.value,cvs.width/2+65,300);
+
+            ctx.font="25px teko";
+            ctx.fillText(this.bestscore,cvs.width/2+65,340);
+        }
+    },
+    reset:function(){
+        this.value=0;
+    }
+
+}
+
 // for drawing
 const draw = () => {
     ctx.fillStyle="#70c5ce";
@@ -319,6 +373,7 @@ const draw = () => {
     alien.draw();
     getReady.draw();
     gameOver.draw();
+    score.draw();
 };
 
 // for update
