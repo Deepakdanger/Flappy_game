@@ -27,7 +27,7 @@ const pipes = {
   },
   w: 53,
   h: 400,
-  gap: 120,
+  gap: 150,
   maxYPos: -150,
   dx: 3,
   draw() {

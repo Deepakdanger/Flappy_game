@@ -56,7 +56,7 @@ const bird = {
       this.y += this.speed;
       this.speed += this.gravity;
     }
-    if (this.y + this.h / 2 >= cvs.height - ground.h) {
+    if ((this.y + this.h / 2 >= cvs.height - ground.h) || this.y < 0) {
       this.speed = 0;
       this.frame = 0;
       if (state.current === state.game) {
