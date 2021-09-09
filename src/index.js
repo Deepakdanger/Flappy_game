@@ -13,17 +13,17 @@ let frames = 0;
 
 // Loading Images
 const sprite = new Image();
-sprite.src = 'src/assets/images/sprite.png';
+sprite.src = './assets/images/sprite.png';
 
 // loading audio
 const die = new Audio();
-die.src = 'src/assets/audio/die.wav';
+die.src = './assets/audio/die.wav';
 
 const hit = new Audio();
-hit.src = 'src/assets/audio/hit.wav';
+hit.src = './assets/audio/hit.wav';
 
 const swooshing = new Audio();
-swooshing.src = 'src/assets/audio/swooshing.wav';
+swooshing.src = './assets/audio/swooshing.wav';
 
 cvs.addEventListener('click', () => {
   switch (state.current) {

@@ -7,12 +7,12 @@ const ctx = cvs.getContext('2d');
 let count = 0;
 
 const hit = new Audio();
-hit.src = 'src/assets/audio/hit.wav';
+hit.src = './assets/audio/hit.wav';
 
 const alienpic = new Image();
-alienpic.src = 'src/assets/images/alien.png';
+alienpic.src = './assets/images/alien.png';
 const fireballpic = new Image();
-fireballpic.src = 'src/assets/images/fireball.png';
+fireballpic.src = './assets/images/fireball.png';
 
 // for alien
 const alien = {

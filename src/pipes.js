@@ -5,13 +5,13 @@ const cvs = document.getElementById('canavas');
 const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
-sprite.src = 'src/assets/images/sprite.png';
+sprite.src = './assets/images/sprite.png';
 
 const hit = new Audio();
-hit.src = 'src/assets/audio/hit.wav';
+hit.src = './assets/audio/hit.wav';
 
 const point = new Audio();
-point.src = 'src/assets/audio/point.wav';
+point.src = './assets/audio/point.wav';
 
 // pipes
 
