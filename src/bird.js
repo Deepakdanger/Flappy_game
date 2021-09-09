@@ -7,10 +7,10 @@ const cvs = document.getElementById('canavas');
 const ctx = cvs.getContext('2d');
 
 const birdpic = new Image();
-birdpic.src = './assets/images/frame.png';
+birdpic.src = '../src/assets/images/frame.png';
 
 const die = new Audio();
-die.src = './assets/audio/die.wav';
+die.src = '../src/assets/audio/die.wav';
 
 const bird = {
   animation: [

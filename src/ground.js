@@ -4,7 +4,7 @@ const cvs = document.getElementById('canavas');
 const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
-sprite.src = './assets/images/sprite.png';
+sprite.src = '../src/assets/images/sprite.png';
 // setting cloud
 
 const cloud = {

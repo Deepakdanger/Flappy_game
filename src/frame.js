@@ -2,10 +2,10 @@ const cvs = document.getElementById('canavas');
 const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
-sprite.src = './assets/images/sprite.png';
+sprite.src = '../src/assets/images/sprite.png';
 
 const music = new Audio();
-music.src = './assets/audio/dreams.mp3';
+music.src = '../src/assets/audio/dreams.mp3';
 
 // game page
 
