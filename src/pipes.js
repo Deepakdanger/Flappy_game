@@ -79,4 +79,4 @@ const pipes = {
 
 };
 
-export { pipes as default};
+export { pipes as default };
