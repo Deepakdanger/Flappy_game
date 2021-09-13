@@ -2,28 +2,13 @@ import bird from './bird';
 import { cloud, ground } from './ground';
 import { alien, ball } from './alien';
 import {
-  state, score, getReady, gameOver, music,
+  state, score, getReady, gameOver, music, cvs, ctx, swooshing,
 } from './frame';
 import pipes from './pipes';
 
-const cvs = document.getElementById('canvas');
-const ctx = cvs.getContext('2d');
-
 let frames = 0;
 
-// Loading Images
-const sprite = new Image();
-sprite.src = '../src/assets/images/sprite.png';
-
 // loading audio
-const die = new Audio();
-die.src = '../src/assets/audio/die.wav';
-
-const hit = new Audio();
-hit.src = '../src/assets/audio/hit.wav';
-
-const swooshing = new Audio();
-swooshing.src = '../src/assets/audio/swooshing.wav';
 
 cvs.addEventListener('click', () => {
   switch (state.current) {

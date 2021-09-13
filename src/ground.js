@@ -1,10 +1,7 @@
-import { state } from './frame';
+import {
+  state, sprite, cvs, ctx,
+} from './frame';
 
-const cvs = document.getElementById('canvas');
-const ctx = cvs.getContext('2d');
-
-const sprite = new Image();
-sprite.src = '../src/assets/images/sprite.png';
 // setting cloud
 
 const cloud = {

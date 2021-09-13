@@ -1,10 +1,9 @@
 // For bird
 
-import { state, music } from './frame';
+import {
+  state, music, cvs, ctx,
+} from './frame';
 import { ground } from './ground';
-
-const cvs = document.getElementById('canvas');
-const ctx = cvs.getContext('2d');
 
 const birdpic = new Image();
 birdpic.src = '../src/assets/images/frame.png';

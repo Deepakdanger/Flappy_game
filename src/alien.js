@@ -1,13 +1,9 @@
 import bird from './bird';
-import { state, music } from './frame';
-
-const cvs = document.getElementById('canvas');
-const ctx = cvs.getContext('2d');
+import {
+  state, music, cvs, ctx, hit,
+} from './frame';
 
 let count = 0;
-
-const hit = new Audio();
-hit.src = '../src/assets/audio/hit.wav';
 
 const alienpic = new Image();
 alienpic.src = '../src/assets/images/alien.png';

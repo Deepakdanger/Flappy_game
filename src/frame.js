@@ -7,6 +7,12 @@ sprite.src = '../src/assets/images/sprite.png';
 const music = new Audio();
 music.src = '../src/assets/audio/dreams.mp3';
 
+const hit = new Audio();
+hit.src = '../src/assets/audio/hit.wav';
+
+const swooshing = new Audio();
+swooshing.src = '../src/assets/audio/swooshing.wav';
+
 // game page
 
 const state = {
@@ -70,5 +76,5 @@ const gameOver = {
 };
 
 export {
-  state, score, getReady, gameOver, music,
+  state, score, getReady, gameOver, music, sprite, cvs, ctx, hit, swooshing,
 };
