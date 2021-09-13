@@ -3,7 +3,7 @@
 import { state, music } from './frame';
 import { ground } from './ground';
 
-const cvs = document.getElementById('canavas');
+const cvs = document.getElementById('canvas');
 const ctx = cvs.getContext('2d');
 
 const birdpic = new Image();

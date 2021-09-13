@@ -6,7 +6,7 @@ import {
 } from './frame';
 import pipes from './pipes';
 
-const cvs = document.getElementById('canavas');
+const cvs = document.getElementById('canvas');
 const ctx = cvs.getContext('2d');
 
 let frames = 0;

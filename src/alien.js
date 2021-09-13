@@ -1,7 +1,7 @@
 import bird from './bird';
 import { state, music } from './frame';
 
-const cvs = document.getElementById('canavas');
+const cvs = document.getElementById('canvas');
 const ctx = cvs.getContext('2d');
 
 let count = 0;

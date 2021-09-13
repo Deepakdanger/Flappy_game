@@ -1,6 +1,6 @@
 import { state } from './frame';
 
-const cvs = document.getElementById('canavas');
+const cvs = document.getElementById('canvas');
 const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
