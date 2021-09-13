@@ -1,3 +1,4 @@
+import 'phaser';
 import bird from './bird';
 import { cloud, ground } from './ground';
 import { alien, ball } from './alien';
@@ -7,8 +8,6 @@ import {
 import pipes from './pipes';
 
 let frames = 0;
-
-// loading audio
 
 cvs.addEventListener('click', () => {
   switch (state.current) {
