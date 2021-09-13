@@ -79,4 +79,4 @@ const pipes = {
 
 };
 
-export { pipes as default, music };
+export { pipes as default};
