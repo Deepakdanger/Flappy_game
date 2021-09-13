@@ -1,4 +1,7 @@
-const cvs = document.getElementById('canvas');
+const cvs = document.createElement('canvas');
+cvs.setAttribute('height', '655');
+cvs.setAttribute('width', '1349');
+document.body.appendChild(cvs);
 const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
