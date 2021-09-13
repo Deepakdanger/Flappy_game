@@ -14,14 +14,6 @@ const cloud = {
   draw() {
     ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
       this.x, this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + this.w, this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 2 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 3 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 4 * (this.w), this.y, this.w, this.h);
   },
 };
 
@@ -37,18 +29,6 @@ const ground = {
   dx: 3,
   draw() {
     ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + this.w, this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 2 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 3 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 4 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 5 * (this.w), this.y, this.w, this.h);
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
-      this.x + 6 * (this.w), this.y, this.w, this.h);
   },
   update() {
     if (state.current === state.game) {
