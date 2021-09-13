@@ -16,8 +16,6 @@ hit.src = '../src/assets/audio/hit.wav';
 const swooshing = new Audio();
 swooshing.src = '../src/assets/audio/swooshing.wav';
 
-// game page
-
 const state = {
   current: 0,
   getReady: 0,
@@ -25,7 +23,6 @@ const state = {
   gameOver: 2,
 };
 
-// for scoring
 const score = {
   bestscore: (parseFloat(localStorage.getItem('bestscore')) || 0),
   value: 0,
@@ -48,7 +45,6 @@ const score = {
 
 };
 
-// 1st page
 const getReady = {
   sX: 0,
   sY: 228,

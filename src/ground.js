@@ -2,8 +2,6 @@ import {
   state, sprite, cvs, ctx,
 } from './frame';
 
-// setting cloud
-
 const cloud = {
   sX: 0,
   sY: 0,
@@ -24,8 +22,6 @@ const cloud = {
       this.x + 4 * (this.w), this.y, this.w, this.h);
   },
 };
-
-// setting ground
 
 const ground = {
   sX: 276,

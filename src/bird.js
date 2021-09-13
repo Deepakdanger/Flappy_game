@@ -1,5 +1,3 @@
-// For bird
-
 import {
   state, music, cvs, ctx,
 } from './frame';

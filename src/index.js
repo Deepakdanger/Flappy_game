@@ -33,7 +33,6 @@ cvs.addEventListener('click', () => {
   }
 });
 
-// for drawing
 const draw = () => {
   ctx.fillStyle = '#70c5ce';
   ctx.fillRect(0, 0, cvs.width, cvs.height);
@@ -48,7 +47,6 @@ const draw = () => {
   score.draw();
 };
 
-// for update
 const update = () => {
   ground.update();
   bird.update(frames);
@@ -57,7 +55,6 @@ const update = () => {
   ball.update(frames);
 };
 
-// Loop fuction
 const loop = () => {
   draw();
   update();
