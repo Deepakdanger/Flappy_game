@@ -10,6 +10,13 @@
     "test": "jest",
     "heroku-postbuild": "webpack --config webpack.prod.js"
   },
+  "engines": {
+    "node": "15.10.0"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
