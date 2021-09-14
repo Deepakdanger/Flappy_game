@@ -2,9 +2,14 @@
   Help this monster bird to fly across the pipes while defending from bullet.
 
 ## Game Instructions
+Click the mouse button to jump and avoid the pipes and bullet coming from alien spaceship.
 [Click here to play the game]()</p>
 
-![Start Screen]()
+![Start Screen](src/assets/images/screen1.PNG)
+
+![Mid Game](src/assets/images/screen2.png)
+
+![End Screen](src/assets/images/screen3.PNG)
 
 ## Built With
 - Phaser  
