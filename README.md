@@ -3,7 +3,7 @@
 
 ## Game Instructions
 Click the mouse button to jump and avoid the pipes and bullet coming from alien spaceship.
-[Click here to play the game]()</p>
+[Click here to play the game](https://deepakdanger.github.io/Flappy_game/)</p>
 
 ![Start Screen](src/assets/images/screen1.PNG)
 
@@ -20,7 +20,7 @@ Click the mouse button to jump and avoid the pipes and bullet coming from alien 
 ## Live Demo
 
 Click on the link below for accessing the deployed website.
-### [FLAPPY GAME]()</p>
+### [FLAPPY GAME](https://lit-coast-37479.herokuapp.com/)</p>
 
 
 ## Getting Started
