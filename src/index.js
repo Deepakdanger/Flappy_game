@@ -9,6 +9,21 @@ import pipes from './pipes';
 
 let frames = 0;
 
+const sprite = new Image();
+sprite.src = '../src/assets/images/sprite.png';
+
+const boardpic = new Image();
+boardpic.src = '../src/assets/images/leaderboard.png';
+
+const birdpic = new Image();
+birdpic.src = '../src/assets/images/frame.png';
+
+const alienpic = new Image();
+alienpic.src = '../src/assets/images/alien.png';
+
+const fireballpic = new Image();
+fireballpic.src = '../src/assets/images/fireball.png';
+
 cvs.addEventListener('click', () => {
   switch (state.current) {
     case state.formName:
