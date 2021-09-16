@@ -27,7 +27,7 @@ form {
 
 #pname {
   font-family: cursive;
-  font-size: 300;
+  font-size: 25px;
   font-weight: 600;
   margin-left: 20px;
 }
@@ -35,7 +35,7 @@ form {
 #fname {
   font-family: 'Courier New', Courier, monospace;
   font-size: auto;
-  font-weight: 600;
+  font-weight: 25px;
   margin-left: 20px;
   margin-top: 25px;
   width: 80%;
@@ -44,7 +44,7 @@ form {
 
 #submit {
   font-family: cursive;
-  font-size: 100;
+  font-size: 25px;
   margin-left: 20px;
   margin-top: 25px;
 }
