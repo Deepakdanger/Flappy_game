@@ -10,8 +10,10 @@ const cloud = {
   x: 0,
   y: cvs.height - 280,
   draw() {
+    sprite.onload = function() {
     ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
       this.x, this.y, this.w, this.h);
+    }
     ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
       this.x + this.w, this.y, this.w, this.h);
     ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h,
