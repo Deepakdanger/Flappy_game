@@ -44,7 +44,6 @@ const score = {
   nameX: cvs.width / 2 - 70,
   scoreX: cvs.width / 2 + 150,
   scoreY: 290,
-  //username: localStorage.getItem('user'),
   draw() {
     if (state.current === state.game) {
       ctx.fillStyle = '#000000';
@@ -65,7 +64,6 @@ const score = {
     }
   },
   draw1(data) {
-    console.log(data);
     this.dataArray = data;
   },
   update() {
@@ -80,7 +78,6 @@ const score = {
         }
       }
     }
-    console.log(this.dataArray);
   },
   reset() {
     this.value = 0;
