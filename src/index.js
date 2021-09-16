@@ -73,9 +73,11 @@ const loop = () => {
 
 form1.addEventListener('submit', (e) => {
   e.preventDefault();
-  state.current = state.getReady;
+  const inputName = document.getElementById('fname');
+  localStorage.setItem('user', inputName.value);
   form1.classList.remove('addv');
   form1.classList.add('removev');
+  state.current = state.getReady;
 });
 
 loop();

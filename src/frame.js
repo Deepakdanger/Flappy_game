@@ -44,7 +44,7 @@ const score = {
   nameX: cvs.width / 2 - 70,
   scoreX: cvs.width / 2 + 150,
   scoreY: 290,
-  username: 'greyer',
+  //username: localStorage.getItem('user'),
   draw() {
     if (state.current === state.game) {
       ctx.fillStyle = '#000000';
@@ -69,15 +69,11 @@ const score = {
     this.dataArray = data;
   },
   update() {
-    const addData = { user: score.username, score: score.value };
+    const addData = { user: localStorage.getItem('user'), score: score.value };
     this.dataArray.result.push(addData);
     for (let i = 0; i < this.dataArray.result.length; i += 1) {
-      // Last i elements are already in place
       for (let j = 0; j < (this.dataArray.result.length - i - 1); j += 1) {
-        // Checking if the item at present iteration
-        // is greater than the next iteration
         if (this.dataArray.result[j].score > this.dataArray.result[j + 1].score) {
-          // If the condition is true then swap them
           const temp = this.dataArray.result[j];
           this.dataArray.result[j] = this.dataArray.result[j + 1];
           this.dataArray.result[j + 1] = temp;
@@ -111,7 +107,7 @@ const leaderboard = {
       .then((data) => data.json());
   },
   postScore() {
-    const data = { user: score.username, score: score.value };
+    const data = { user: localStorage.getItem('user'), score: score.value };
     this.post(false, data)
       .then(() => console.log('succesfully send'))
       .catch((e) => console.log(e.message));
@@ -126,11 +122,9 @@ const leaderboard = {
 
 const formName = {
   draw() {
-    console.log('hello');
     if (state.current === state.formName) {
       form1.classList.remove('removev');
       form1.classList.add('addv');
-      console.log(state.current);
     }
   },
 };
