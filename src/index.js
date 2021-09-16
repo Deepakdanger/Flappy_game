@@ -3,11 +3,13 @@ import bird from './bird';
 import { cloud, ground } from './ground';
 import { alien, ball } from './alien';
 import {
-  state, score, getReady, gameOver, music, cvs, ctx, swooshing, leaderboard, form1, formName,
+  state, score, getReady, gameOver, cvs, music, swooshing, leaderboard, form1, formName,
 } from './frame';
 import pipes from './pipes';
 
 let frames = 0;
+
+const ctx = cvs.getContext('2d');
 
 const sprite = new Image();
 sprite.src = '../src/assets/images/sprite.png';
