@@ -1,15 +1,44 @@
 # FLAPPY_GAME
-  Help this monster bird to fly across the pipes while defending from bullet.
+  This is Flappy game. This Game is built using JavaScript, webpack,HTML and CSS. Here, In this game player has to help the monster bird to fly across the pipes while defending from bullet.
 
 ## Game Instructions
+
 Click the mouse button to jump and avoid the pipes and bullet coming from alien spaceship.
-[Click here to play the game](https://deepakdanger.github.io/Flappy_game/)</p>
+[Click here to play the game](https://objective-bhaskara-93f8de.netlify.app/)</p>
+
+# Steps to play the Game:-
+
+i) Enter your Name & click on start button to play the game.
+
+![Intro Screen](src/assets/images/screen0.PNG)
+
+ii) Click left click on mouse button to start the game
 
 ![Start Screen](src/assets/images/screen1.PNG)
 
+iii) Click the left mouse button to jump. 
+     Avoid touching the pipes and bullet coming from alien Spaceship.
+
 ![Mid Game](src/assets/images/screen2.png)
 
-![End Screen](src/assets/images/screen3.PNG)
+iv) If you touches any pipes or bullet then its game over.
+
+![Game Over Screen](src/assets/images/screen3.PNG)
+
+ v) In last you will see the leaderBoard screen ,where top 5 Player name is listing.
+
+ ![Leaderboard Screen](src/assets/images/screen4.PNG)
+
+ # Game Resources:-
+ 
+ ## Game alien assets(Spaceship and his bullet)
+
+ ![Spaceship](src/assets/images/images/alien.png)    ![Bullet](src/assets/images/images/fireball.png)
+
+## Character and Environments assets
+
+ ![Spaceship](src/assets/images/images/frame.png)      ![Spaceship](src/assets/images/images/sprite.png)
+
 
 ## Built With
 - Phaser  
@@ -20,7 +49,7 @@ Click the mouse button to jump and avoid the pipes and bullet coming from alien 
 ## Live Demo
 
 Click on the link below for accessing the deployed website.
-### [FLAPPY GAME](https://lit-coast-37479.herokuapp.com/)</p>
+### [FLAPPY GAME](https://objective-bhaskara-93f8de.netlify.app/)</p>
 
 
 ## Getting Started
@@ -55,9 +84,9 @@ npm run build
    
 6. You can also run the following to access the website on `http://localhost:8080` in your local computer.
 ```sh
-npm run serve
+npm run start
 ```
-* Press `Ctrl + c` to exit the `npm run serve` session in your terminal.
+* Press `Ctrl + c` to exit the `npm run start` session in your terminal.
 
 ### Testing the application
 
