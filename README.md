@@ -1,49 +1,125 @@
-# Phaser 3 Webpack Project Template
+# FLAPPY_GAME
+  This is Flappy game. This Game is built using JavaScript, webpack,HTML and CSS. Here, In this game player has to help the monster bird to fly across the pipes while defending from bullet.
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+## Game Instructions
 
-This has been updated for Phaser 3.50.0 version and above.
+Click the mouse button to jump and avoid the pipes and bullet coming from alien spaceship.
+[Click here to play the game](https://objective-bhaskara-93f8de.netlify.app/)</p>
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+# Steps to play the Game:-
 
-## Requirements
+i) Enter your Name & click on start button to play the game.
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+![Intro Screen](src/assets/images/screen0.PNG)
 
-## Available Commands
+ii) Click left click on mouse button to start the game
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+![Start Screen](src/assets/images/screen1.PNG)
 
-## Writing Code
+iii) Click the left mouse button to jump. 
+     Avoid touching the pipes and bullet coming from alien Spaceship.
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
+![Mid Game](src/assets/images/screen2.png)
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+iv) If you touches any pipes or bullet then its game over.
 
-## Customizing the Template
+![Game Over Screen](src/assets/images/screen3.PNG)
 
-### Babel
+ v) In last you will see the leaderBoard screen ,where top 5 Player name is listing.
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+ ![Leaderboard Screen](src/assets/images/screen4.PNG)
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+ # Game Resources:-
+ 
+ ## Game alien assets(Spaceship and his bullet)
 
-### Webpack
+ ![Spaceship](src/assets/images/images/alien.png)    ![Bullet](src/assets/images/images/fireball.png)
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+## Character and Environments assets
 
-## Deploying Code
+ ![Spaceship](src/assets/images/images/frame.png)      ![Spaceship](src/assets/images/images/sprite.png)
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+## Built With
+- Phaser  
+- Javascript
+- Webpack
+- CSS Bootstrap
+
+## Live Demo
+
+Click on the link below for accessing the deployed website.
+### [FLAPPY GAME](https://objective-bhaskara-93f8de.netlify.app/)</p>
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+- A browser
+- Node js (optional)
+
+### Setup
+
+All code below are for a terminal.
+
+1. Clone repository: 
+```sh
+  $ git clone https://github.com/Deepakdanger/Flappy_game.git
+```
+2. Change directory inside project
+```sh
+cd Flappy_game
+```
+3. In your terminal, run 
+```sh
+npm install
+```
+4. After changes, run webpack to build production code.
+```sh
+npm run build
+```
+5. You can now open the `index.html` file in `dist folder` in any browser.
+   
+6. You can also run the following to access the website on `http://localhost:8080` in your local computer.
+```sh
+npm run start
+```
+* Press `Ctrl + c` to exit the `npm run start` session in your terminal.
+
+### Testing the application
+
+* Run the command to run tests
+```sh
+  npm run test
+```
+* Press `q` to exit the test session
+* Press `a` to run the tests again.
+
+## Author
+
+![Deepak Kumar's GitHub stats](https://github-readme-stats.vercel.app/api?username=Deepakdanger&count_private=true&theme=dark&show_icons=true)
+
+👤 **DEEPAK KUMAR**
+- GitHub: [@githubhandle](https://github.com/Deepakdanger)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Deepakdanger/Flappy_game/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](/LICENSE) licensed.

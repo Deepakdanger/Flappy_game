@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+
+#canvas {
+  border: 1px solid #570c0c;
+  display: block;
+  margin: 0 auto;
+}
+
+.addv {
+  visibility: visible;
+  display: block;
+}
+
+.removev {
+  visibility: hidden;
+}
+
+form {
+  height: 15rem;
+  width: 25rem;
+  position: absolute;
+  top: 20%;
+  left: 33%;
+}
+
+#pname {
+  font-family: cursive;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+#fname {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-top: 25px;
+  width: 80%;
+  height: 20%;
+}
+
+#submit {
+  font-family: cursive;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
