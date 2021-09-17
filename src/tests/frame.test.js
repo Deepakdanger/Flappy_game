@@ -18,11 +18,11 @@ describe('It describe state', () => {
   });
 
   test('return actual property of gameOver', () => {
-    expect(gameOver.y).toEqual(200);
+    expect(gameOver.y).toEqual(240);
     expect(gameOver.sX).toEqual(175);
     expect(gameOver.sY).toEqual(228);
     expect(gameOver.w).toEqual(225);
-    expect(gameOver.h).toEqual(202);
+    expect(gameOver.h).toEqual(48);
   });
 
   test('return actual property of score', () => {

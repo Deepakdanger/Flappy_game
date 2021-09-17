@@ -10,7 +10,6 @@ alienpic.src = '../src/assets/images/alien.png';
 const fireballpic = new Image();
 fireballpic.src = '../src/assets/images/fireball.png';
 
-// for alien
 const alien = {
   sX: 0,
   sY: 0,
@@ -39,7 +38,7 @@ const alien = {
     }
   },
 };
-  // for fireball
+
 const ball = {
   ball_position: [],
   w: 45,
@@ -70,7 +69,7 @@ const ball = {
       if (p.x + this.width <= 0) {
         this.ball_position.shift();
       }
-      // collison
+
       if (bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w
                   && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h) {
         hit.play();

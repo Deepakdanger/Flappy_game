@@ -44,9 +44,9 @@ const bird = {
   },
   update(frames) {
     this.period = state.current === state.getReady ? 10 : 5;
-    this.frame += frames % this.period === 0 ? 1 : 0; // flapping the bird
-    this.frame %= this.animation.length; // resetting the frame
-    // gravity
+    this.frame += frames % this.period === 0 ? 1 : 0;
+    this.frame %= this.animation.length;
+
     if (state.current === state.getReady) {
       this.y = 150;
     } else {

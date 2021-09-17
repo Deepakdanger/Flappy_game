@@ -5,7 +5,6 @@ document.body.appendChild(cvs);
 const ctx = cvs.getContext('2d');
 
 const form1 = document.getElementById('form1');
-form1.classList.add('removev');
 
 const sprite = new Image();
 sprite.src = '../src/assets/images/sprite.png';
@@ -141,7 +140,6 @@ const getReady = {
   },
 };
 
-// last page
 const gameOver = {
   sX: 175,
   sY: 228,
